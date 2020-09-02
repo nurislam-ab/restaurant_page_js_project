@@ -1,0 +1,32 @@
+{
+  "name": "restaurant_page_js_project",
+  "version": "1.0.0",
+  "description": "This project is about restaurant page created using JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nurislam-ab/restaurant_page_js_project.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "html5",
+    "css3",
+    "sass",
+    "webpack",
+    "dom"
+  ],
+  "author": "Nurislam Ab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nurislam-ab/restaurant_page_js_project/issues"
+  },
+  "homepage": "https://github.com/nurislam-ab/restaurant_page_js_project#readme",
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
