@@ -24,10 +24,18 @@ const UIComponents = (() => {
     return paragraphBlock;
   }
 
+  const getWrapper = (wrapperType, wrapperClass, wrapperId) => {
+    const blockWrapper = document.createElement(`${wrapperType}`);
+    blockWrapper.className = `${wrapperClass}`;
+    blockWrapper.id = `${wrapperId}`
+    return blockWrapper;
+  }
+
   return {
     getHeading,
     getImage,
     getParagraph,
+    getWrapper
   }
 })();
 
