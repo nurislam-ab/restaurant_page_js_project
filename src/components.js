@@ -16,10 +16,18 @@ const UIComponents = (() => {
   
     return imageBlock;
   }
+  
+  const getParagraph = (paragraphClassName, paragraphText) => {
+    const paragraphBlock = document.createElement('p');
+    paragraphBlock.className = `${paragraphClassName}`;
+    paragraphBlock.innerHTML = `${paragraphText}`;
+    return paragraphBlock;
+  }
 
   return {
     getHeading,
     getImage,
+    getParagraph,
   }
 })();
 
