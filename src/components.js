@@ -7,9 +7,19 @@ const UIComponents = (() => {
     headerId = (typeof headerId !== 'undefined') ?  headerId : 1
     return headerElement;
   }
+  
+  const getImage = (imgClass, imgId, imgAltText) => {
+    const imageBlock = document.createElement('img');
+    imageBlock.id = `${imgId}`;
+    imageBlock.className = `${imgClass}`;
+    imageBlock.alt = `${imgAltText}`;
+  
+    return imageBlock;
+  }
 
   return {
     getHeading,
+    getImage,
   }
 })();
 
