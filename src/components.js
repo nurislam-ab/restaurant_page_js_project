@@ -80,12 +80,34 @@ const UIComponents = (() => {
     return link;
   };
 
+  const getProductCard = (imgSrc, imgAltText, headerText, previewText, price) => {
+    const productCard = getWrapper('div', 'product-card');
+    const productImageWrapper = getWrapper('div', 'product-image-block');
+    const productPreviewWrapper = getWrapper('div', 'product-preview');
+    const productImage = getImage(`${imgSrc}`, 'product-image', `${imgAltText}`);
+    const productTitle = getHeading('h3', `${headerText}`, 'product-title');
+    const productPreviewText = getWrapper('span', 'product-preview-text');
+    const productPrice = getWrapper('strong', 'product-price');
+    productPreviewText.innerHTML = `${previewText}`;
+    productPrice.innerHTML = `$ ${price}`;
+
+    productImageWrapper.append(productImage);
+    productPreviewWrapper.append(productTitle);
+    productPreviewWrapper.append(productPreviewText);
+    productPreviewWrapper.append(productPrice);
+    productCard.append(productImageWrapper);
+    productCard.append(productPreviewWrapper);
+
+    return productCard;
+  };
+
   return {
     getHeading,
     getImage,
     getParagraph,
     getWrapper,
     getLink,
+    getProductCard,
   };
 })();
 
