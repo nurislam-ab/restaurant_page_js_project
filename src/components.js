@@ -1,42 +1,71 @@
 const UIComponents = (() => {
-  const getHeading = (headerType, headerText, headerClass, headerId) => {
+  const getHeading = (headerType, headerText, headerClass = '', headerId = '') => {
     const headerElement = document.createElement(`${headerType}`);
-    headerElement.id = `${headerId}`;
-    headerElement.className = `${headerClass}`;
+
+    if (headerId === '') {
+      headerElement.removeAttribute('id');
+    } else {
+      headerElement.id = `${headerId}`;
+    }
+
+    if (headerClass === '') {
+      headerElement.removeAttribute('class');
+    } else {
+      headerElement.className = `${headerClass}`;
+    }
+
     headerElement.innerHTML = `${headerText}`;
-    headerId = (typeof headerId !== 'undefined') ?  headerId : 1
+    headerId = (typeof headerId !== 'undefined') ? headerId : 1;
     return headerElement;
-  }
-  
-  const getImage = (imgClass, imgId, imgAltText) => {
+  };
+
+  const getImage = (imgSrc, imgClass = '', imgAltText = '', imgId = '') => {
     const imageBlock = document.createElement('img');
-    imageBlock.id = `${imgId}`;
+
     imageBlock.className = `${imgClass}`;
     imageBlock.alt = `${imgAltText}`;
-  
+    imageBlock.setAttribute('src', `${imgSrc}`);
+
+    if (imgId === '') {
+      imageBlock.removeAttribute('id');
+    } else {
+      imageBlock.id = `${imgId}`;
+    }
+
     return imageBlock;
-  }
-  
+  };
+
   const getParagraph = (paragraphClassName, paragraphText) => {
     const paragraphBlock = document.createElement('p');
     paragraphBlock.className = `${paragraphClassName}`;
     paragraphBlock.innerHTML = `${paragraphText}`;
     return paragraphBlock;
-  }
+  };
 
-  const getWrapper = (wrapperType, wrapperClass, wrapperId) => {
+  const getWrapper = (wrapperType, wrapperClass = '', wrapperId = '') => {
     const blockWrapper = document.createElement(`${wrapperType}`);
-    blockWrapper.className = `${wrapperClass}`;
-    blockWrapper.id = `${wrapperId}`
+
+    if (wrapperClass === '') {
+      blockWrapper.removeAttribute('class');
+    } else {
+      blockWrapper.className = `${wrapperClass}`;
+    }
+
+    if (wrapperId === '') {
+      blockWrapper.removeAttribute('id');
+    } else {
+      blockWrapper.id = `${wrapperId}`;
+    }
+
     return blockWrapper;
-  }
+  };
 
   return {
     getHeading,
     getImage,
     getParagraph,
-    getWrapper
-  }
+    getWrapper,
+  };
 })();
 
 export default UIComponents;
