@@ -18,7 +18,7 @@ Building a Restaurant page using JavaScript and Webpack. Learning how to work wi
 
 ## Live Demo
 
-[Demo]()
+[Demo](https://raw.githack.com/nurislam-ab/restaurant_page_js_project/feature-page-tabs/dist/index.html)
 
 ## Getting Started
 
