@@ -101,6 +101,55 @@ const UIComponents = (() => {
     return productCard;
   };
 
+  const getInputField = (fieldType, fieldName = '', fieldClass = '', fieldPlaceholder = '') => {
+    const field = document.createElement('input');
+    field.setAttribute('type', `${fieldType}`);
+
+    if (fieldName === '') {
+      field.removeAttribute('name');
+    } else {
+      field.setAttribute('name', `${fieldName}`);
+    }
+
+    if (fieldPlaceholder === '') {
+      field.removeAttribute('placeholder');
+    } else {
+      field.setAttribute('placeholder', `${fieldPlaceholder}`);
+    }
+
+    if (fieldClass === '') {
+      field.removeAttribute('class');
+    } else {
+      field.classList.add(`${fieldClass}`);
+    }
+
+    return field;
+  };
+
+  const getTextarea = (fieldName = '', fieldClass = '', fieldPlaceholder = '') => {
+    const field = document.createElement('textarea');
+
+    if (fieldName === '') {
+      field.removeAttribute('name');
+    } else {
+      field.setAttribute('name', `${fieldName}`);
+    }
+
+    if (fieldPlaceholder === '') {
+      field.removeAttribute('placeholder');
+    } else {
+      field.setAttribute('placeholder', `${fieldPlaceholder}`);
+    }
+
+    if (fieldClass === '') {
+      field.removeAttribute('class');
+    } else {
+      field.classList.add(`${fieldClass}`);
+    }
+
+    return field;
+  };
+
   return {
     getHeading,
     getImage,
@@ -108,6 +157,8 @@ const UIComponents = (() => {
     getWrapper,
     getLink,
     getProductCard,
+    getInputField,
+    getTextarea,
   };
 })();
 
