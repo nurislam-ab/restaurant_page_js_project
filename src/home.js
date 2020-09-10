@@ -82,11 +82,81 @@ const Home = (() => {
     return homeCoverBlock;
   };
 
+  const getFavoritesBlock = () => {
+    const favoritesBlock = UIComponents.getWrapper('div', 'row');
+    const col1 = UIComponents.getWrapper('div', 'col-50');
+    const col2 = UIComponents.getWrapper('div', 'col-45');
+    const favoritesWrapper = UIComponents.getWrapper('div', 'favorites-container');
+    const textBlock = UIComponents.getWrapper('div', 'text-block');
+
+    const headerBlock = UIComponents.getHeading('h2', header1, 'title');
+    const paragraphBlock = UIComponents.getParagraph('text', paragraph1);
+    const favoriteCard1 = UIComponents.getProductCard(img2, 'Some text', header1, paragraph2, '24.5');
+    const favoriteCard2 = UIComponents.getProductCard(img3, 'Some text', header1, paragraph2, '24.5');
+
+    favoritesWrapper.append(favoriteCard1);
+    favoritesWrapper.append(favoriteCard2);
+    textBlock.append(headerBlock);
+    textBlock.append(paragraphBlock);
+    col1.append(favoritesWrapper);
+    col2.append(textBlock);
+    favoritesBlock.append(col1);
+    favoritesBlock.append(col2);
+    return favoritesBlock;
+  };
+
+  const getPromoBlock = () => {
+    const row = UIComponents.getWrapper('div', 'row');
+    const col1 = UIComponents.getWrapper('div', 'col-60');
+    const col2 = UIComponents.getWrapper('div', 'col-40');
+    const textBlock = UIComponents.getWrapper('div', 'text-block');
+    const imageWrapper = UIComponents.getWrapper('div', 'image-container');
+    const headerBlock = UIComponents.getHeading('h2', header2, 'title');
+    const paragraphBlock = UIComponents.getParagraph('text', paragraph3);
+    const image1 = UIComponents.getImage(img4, 'image', 'Image alt text');
+
+    row.classList.add('promo');
+    textBlock.append(headerBlock);
+    textBlock.append(paragraphBlock);
+    imageWrapper.append(image1);
+    col1.append(textBlock);
+    col2.append(imageWrapper);
+    row.append(col1);
+    row.append(col2);
+
+    return row;
+  };
+
+  const getCTABlock = () => {
+    const row = UIComponents.getWrapper('div', 'row');
+    const span = UIComponents.getWrapper('span', 'g-span');
+    const col = UIComponents.getWrapper('div', 'col');
+    const heading = UIComponents.getHeading('h2', 'Want to Reserve a table or Order food?', 'title');
+    const link = UIComponents.getLink('#', 'Contact us Now', 'link-btn');
+    const textBlock = UIComponents.getWrapper('div', 'text-block');
+    const paragraphBlock = UIComponents.getParagraph('text', paragraph3);
+
+    span.innerHTML = "Let's talk";
+    row.classList.add('cta-container');
+
+    col.append(heading);
+    col.append(link);
+    textBlock.append(paragraphBlock);
+    row.append(span);
+    row.append(col);
+    row.append(textBlock);
+
+    return row;
+  };
+
   const getHomeContent = () => {
     const mainContent = document.getElementById('content');
     const homeContent = UIComponents.getWrapper('section', 'content', 'home');
 
     homeContent.append(getCoverContent());
+    homeContent.append(getFavoritesBlock());
+    homeContent.append(getPromoBlock());
+    homeContent.append(getCTABlock());
     mainContent.append(homeContent);
 
     return homeContent;
