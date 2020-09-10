@@ -42,6 +42,59 @@ const Home = (() => {
   const img2 = '../dist/assets/images/properpizza_pizza_margherita.png';
   const img3 = '../dist/assets/images/image_2.png';
   const img4 = '../dist/assets/images/bread.png';
+
+  const getCoverContent = () => {
+    const homeCoverBlock = UIComponents.getWrapper('div', 'cover');
+    const col1 = UIComponents.getWrapper('div', 'col');
+    const col2 = UIComponents.getWrapper('div', 'col');
+    const headerBlock = UIComponents.getHeading('h2', coverTitle, 'title');
+    const viewMenuBtn = UIComponents.getLink('#', 'View Menu', 'link-btn');
+    const iconsWrapper = UIComponents.getWrapper('div', 'icons-wrapper');
+    const iconBlock1 = UIComponents.getWrapper('div', 'icon-block');
+    const iconBlock2 = UIComponents.getWrapper('div', 'icon-block');
+    const iconBlock3 = UIComponents.getWrapper('div', 'icon-block');
+    const iconBlock4 = UIComponents.getWrapper('div', 'icon-block');
+
+    const image1 = UIComponents.getImage(img1, 'cover-image', 'Cover image alt text');
+
+    viewMenuBtn.setAttribute('onclick', 'openTab("menu")');
+
+    iconBlock1.innerHTML = hamburger;
+    iconBlock2.innerHTML = icecream;
+    iconBlock3.innerHTML = beer;
+    iconBlock4.innerHTML = food;
+
+    homeCoverBlock.classList.add('row');
+    col1.classList.add('col-40');
+    col2.classList.add('col-60');
+
+    iconsWrapper.append(iconBlock1);
+    iconsWrapper.append(iconBlock2);
+    iconsWrapper.append(iconBlock3);
+    iconsWrapper.append(iconBlock4);
+
+    col1.append(headerBlock);
+    col1.append(viewMenuBtn);
+    col1.append(iconsWrapper);
+    col2.append(image1);
+    homeCoverBlock.append(col1);
+    homeCoverBlock.append(col2);
+    return homeCoverBlock;
+  };
+
+  const getHomeContent = () => {
+    const mainContent = document.getElementById('content');
+    const homeContent = UIComponents.getWrapper('section', 'content', 'home');
+
+    homeContent.append(getCoverContent());
+    mainContent.append(homeContent);
+
+    return homeContent;
+  };
+
+  return {
+    getHomeContent,
+  };
 })();
 
 export default Home;
