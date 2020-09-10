@@ -60,11 +60,32 @@ const UIComponents = (() => {
     return blockWrapper;
   };
 
+  const getLink = (linkHref, linkText, linkClass = '', linkId = '') => {
+    const link = document.createElement('a');
+    link.setAttribute('href', `${linkHref}`);
+    link.innerHTML = `${linkText}`;
+
+    if (linkId === '') {
+      link.removeAttribute('id');
+    } else {
+      link.id = `${linkId}`;
+    }
+
+    if (linkClass === '') {
+      link.removeAttribute('class');
+    } else {
+      link.classList.add(`${linkClass}`);
+    }
+
+    return link;
+  };
+
   return {
     getHeading,
     getImage,
     getParagraph,
     getWrapper,
+    getLink,
   };
 })();
 
