@@ -3,7 +3,7 @@
 Building a Restaurant page using JavaScript and Webpack. Learning how to work with ES6 features, modules and webpack.
 
 ## Screenshots
-* [Homepage](dist/assets/images/screencapture_1.jpg)
+![Homepage](dist/assets/images/screencapture_1.jpg)
 * [Menu](app/assets/images/screencapture_2.jpg)
 * [Contact us](app/assets/images/screencapture_3.jpg)
 
